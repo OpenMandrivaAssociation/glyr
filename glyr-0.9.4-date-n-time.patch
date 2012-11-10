@@ -1,0 +1,15 @@
+Description: Remove __DATE and __TIME__ that causes the package to rebuild when not needed.
+Author: Kyrill Detinov <lazy.kent@opensuse.org>
+Index: lib/glyr.c
+===================================================================
+--- lib/glyr.c.orig
++++ lib/glyr.c
+@@ -240,7 +240,7 @@ GlyrMemCache * glyr_cache_copy(GlyrMemCa
+ 
+ const char * glyr_version(void)
+ {
+-    return "Version "GLYR_VERSION_MAJOR"."GLYR_VERSION_MINOR"."GLYR_VERSION_MICRO" ("GLYR_VERSION_NAME") of ["__DATE__"] compiled at ["__TIME__"]";
++    return "Version "GLYR_VERSION_MAJOR"."GLYR_VERSION_MINOR"."GLYR_VERSION_MICRO" ("GLYR_VERSION_NAME")";
+ }
+ 
+ /*-----------------------------------------------*/
