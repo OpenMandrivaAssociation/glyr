@@ -114,3 +114,10 @@ pushd build
 %{_includedir}/%{name}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
+
+
+%changelog
+* Thu Mar 15 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.9.5-1
++ Revision: 785045
+- imported package glyr
+
