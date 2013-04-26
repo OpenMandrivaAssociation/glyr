@@ -1,12 +1,12 @@
 %define major   1
 %define libname %mklibname glyr %{major}
-%define develname %mklibname -d glyr
+%define devname %mklibname -d glyr
 
 Name:           glyr
 Version:        0.9.5
 Release:        1
 Summary:        Searcheninge for Musicrelated Metadata
-License:        GPL-3.0+
+License:        GPLv3+
 Group:          System/Libraries
 Url:            https://github.com/sahib/glyr
 Source0:        https://github.com/downloads/sahib/%{name}/%{name}-%{version}.tar.bz2
@@ -39,54 +39,20 @@ to work as a standalone program which is able to download:
 * similar artists;
 * similar songs.
 
-%package -n	%libname
+%package -n	%{libname}
 Summary:        Searcheninge for Musicrelated Metadata
 Group:          System/Libraries
 
-%description -n %libname
+%description -n %{libname}
 Glyr shared library.
 
-The sort of metadata glyr is searching (and downloading) is usually the
-data you see in your musicplayer. And indeed, originally it was written
-to serve as internally library for a musicplayer, but has been extended
-to work as a standalone program which is able to download:
-
-* cover art;
-* lyrics;
-* bandphotos;
-* artist biography;
-* album reviews;
-* tracklists of an album;
-* a list of albums from a specific artist;
-* tags, either related to artist, album or title relations, for example
-  links to wikipedia;
-* similar artists;
-* similar songs
-
-%package -n	%develname
+%package -n	%{devname}
 Summary:        Searcheninge for Musicrelated Metadata
 Group:          Development/C
-Requires:       %libname = %{version}-%{release}
+Requires:       %{libname} = %{version}-%{release}
 
-%description -n %develname
+%description -n %{devname}
 Glyr development files.
-
-The sort of metadata glyr is searching (and downloading) is usually the
-data you see in your musicplayer. And indeed, originally it was written
-to serve as internally library for a musicplayer, but has been extended
-to work as a standalone program which is able to download:
-
-* cover art;
-* lyrics;
-* bandphotos;
-* artist biography;
-* album reviews;
-* tracklists of an album;
-* a list of albums from a specific artist;
-* tags, either related to artist, album or title relations, for example
-  links to wikipedia;
-* similar artists;
-* similar songs
 
 %prep
 %setup -qn %{name}
@@ -105,19 +71,12 @@ pushd build
 %doc AUTHORS CHANGELOG COPYING README.textile TODO
 %{_bindir}/glyrc
 
-%files -n %libname
-%doc COPYING
-%{_libdir}/*.so.*
+%files -n %{libname}
+%{_libdir}/libglyr.so.%{major}*
 
-%files -n %develname
+%files -n %{devname}
 %doc src/examples
 %{_includedir}/%{name}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
-
-
-%changelog
-* Thu Mar 15 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.9.5-1
-+ Revision: 785045
-- imported package glyr
 
