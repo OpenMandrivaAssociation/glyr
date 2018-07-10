@@ -4,7 +4,7 @@
 
 Name:           glyr
 Version:        0.9.5
-Release:        9
+Release:        10
 Summary:        Searcheninge for Musicrelated Metadata
 License:        GPLv3+
 Group:          System/Libraries
