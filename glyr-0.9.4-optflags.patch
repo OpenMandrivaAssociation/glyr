@@ -1,17 +1,16 @@
-Description: Use default openSUSE optimization flags.
-Author: Kyrill Detinov <lazy.kent@opensuse.org>
-Index: CMakeLists.txt
-===================================================================
---- CMakeLists.txt.orig
-+++ CMakeLists.txt
-@@ -57,8 +57,8 @@ ENDIF()
- MESSAGE("-- Building Target: ${CMAKE_BUILD_TYPE}")
+diff -up glyr-1.0.10/CMakeLists.txt.1~ glyr-1.0.10/CMakeLists.txt
+--- glyr-1.0.10/CMakeLists.txt.1~	2022-10-06 22:18:51.937820227 +0200
++++ glyr-1.0.10/CMakeLists.txt	2022-10-06 22:19:11.193935718 +0200
+@@ -71,9 +71,9 @@ IF(CMAKE_COMPILER_IS_GNUCC)
+ ENDIF()
  
- SET(COMMON_FLAGS "-Wall -Wextra -Wstrict-prototypes -std=c99 -W -Wno-unused-parameter -Wno-strict-prototypes")
--SET(CMAKE_C_FLAGS_RELEASE "${COMMON_FLAGS} ${CMAKE_C_FLAGS} -Os -s")
--SET(CMAKE_C_FLAGS_DEBUG   "${COMMON_FLAGS} ${CMAKE_C_FLAGS} -ggdb3")
-+#SET(CMAKE_C_FLAGS_RELEASE "${COMMON_FLAGS} ${CMAKE_C_FLAGS} -Os -s")
-+#SET(CMAKE_C_FLAGS_DEBUG   "${COMMON_FLAGS} ${CMAKE_C_FLAGS} -ggdb3")
- SET(CMAKE_C_FLAGS "${COMMON_FLAGS} ${CMAKE_C_FLAGS}")
+ SET(COMMON_FLAGS "${GCC_ONLY_FLAGS} -Wall -Wextra -Wstrict-prototypes -W -Wno-unused-parameter -Wno-strict-prototypes -fvisibility=hidden")
+-SET(CMAKE_C_FLAGS_RELEASE "${COMMON_FLAGS} ${CMAKE_C_FLAGS} -Os ${GCC_ONLY_OPT}")
+-SET(CMAKE_C_FLAGS_DEBUG   "${COMMON_FLAGS} ${CMAKE_C_FLAGS} -g3")
+-SET(CMAKE_C_FLAGS "${COMMON_FLAGS} ${CMAKE_C_FLAGS}")
++#SET(CMAKE_C_FLAGS_RELEASE "${COMMON_FLAGS} ${CMAKE_C_FLAGS} -Os ${GCC_ONLY_OPT}")
++#SET(CMAKE_C_FLAGS_DEBUG   "${COMMON_FLAGS} ${CMAKE_C_FLAGS} -g3")
++#SET(CMAKE_C_FLAGS "${COMMON_FLAGS} ${CMAKE_C_FLAGS}")
  # ------------------------------------------------
  
+ # ------------------------------------------------

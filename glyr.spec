@@ -1,19 +1,18 @@
 %define major   1
-%define libname %mklibname glyr %{major}
+%define libname %mklibname glyr
 %define devname %mklibname -d glyr
 
 Name:           glyr
-Version:        0.9.5
-Release:        11
-Summary:        Searcheninge for Musicrelated Metadata
+Version:        1.0.10
+Release:        1
+Summary:        Search engine for music related Metadata
 License:        GPLv3+
 Group:          System/Libraries
 Url:            https://github.com/sahib/glyr
-Source0:        https://github.com/downloads/sahib/%{name}/%{name}-%{version}.tar.bz2
-# PATCH-FIX-OPENSUSE glyr-0.9.4-date-n-time.patch lazy.kent@opensuse.org -- remove __DATE and __TIME__ that causes the package to rebuild when not needed
-Patch0:         glyr-0.9.4-date-n-time.patch
+Source0:        https://github.com/sahib/glyr/archive/refs/tags/%{version}.tar.gz
 # PATCH-FIX-OPENSUSE glyr-0.9.4-optflags.patch lazy.kent@opensuse.org -- use default openSUSE optimization flags.
 Patch1:         glyr-0.9.4-optflags.patch
+Patch2:		glyr-1.0.10-link-curl.patch
 BuildRequires:  cmake
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(libcurl)
@@ -55,20 +54,17 @@ Requires:       %{libname} = %{version}-%{release}
 Glyr development files.
 
 %prep
-%setup -qn %{name}
-%patch0
-%patch1
+%autosetup -p1
+%cmake
 
 %build
-%cmake
-%make
+%make_build -C build
 
 %install
-pushd build
-%makeinstall_std
+%make_install -C build
 
 %files
-%doc AUTHORS CHANGELOG COPYING README.textile TODO
+%doc AUTHORS CHANGELOG COPYING README.textile
 %{_bindir}/glyrc
 
 %files -n %{libname}

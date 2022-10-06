@@ -1,0 +1,12 @@
+diff -up glyr-1.0.10/CMakeLists.txt.omv~ glyr-1.0.10/CMakeLists.txt
+--- glyr-1.0.10/CMakeLists.txt.omv~	2022-10-06 22:20:21.101354089 +0200
++++ glyr-1.0.10/CMakeLists.txt	2022-10-06 22:20:56.781436055 +0200
+@@ -89,6 +89,7 @@ INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR
+ # Find deps
+ # ----------------------
+ FIND_PACKAGE(CURL REQUIRED)
++set(CURL_LIBRARY curl)
+ PKG_CHECK_MODULES(GLIBPKG glib-2.0>=2.10 gthread-2.0 REQUIRED)
+ PKG_CHECK_MODULES(SQLITE3 sqlite3 REQUIRED)
+ INCLUDE_DIRECTORIES(${GLIBPKG_INCLUDE_DIRS})
+diff -up glyr-1.0.10/lib/CMakeLists.txt.omv~ glyr-1.0.10/lib/CMakeLists.txt
