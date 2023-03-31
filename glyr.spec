@@ -4,7 +4,7 @@
 
 Name:           glyr
 Version:        1.0.10
-Release:        1
+Release:        2
 Summary:        Search engine for music related Metadata
 License:        GPLv3+
 Group:          System/Libraries
