@@ -1,0 +1,29 @@
+diff -urN glyr-1.0.10/CMakeLists.txt glyr-1.0.10-fix-version-numbers/CMakeLists.txt
+--- glyr-1.0.10/CMakeLists.txt	2016-11-12 14:51:12.000000000 +0000
++++ glyr-1.0.10-fix-version-numbers/CMakeLists.txt	2025-05-04 00:33:39.293255148 +0100
+@@ -38,7 +38,7 @@
+ # ------------------------------------------------
+ SET(GLYR_VERSION_MAJOR "1")
+ SET(GLYR_VERSION_MINOR "0")
+-SET(GLYR_VERSION_MICRO "9")
++SET(GLYR_VERSION_MICRO "10")
+ SET(GLYR_VERSION_NAME  "Raving Raven")
+ # ------------------------------------------------
+ 
+diff -urN glyr-1.0.10/lib/config.h glyr-1.0.10-fix-version-numbers/lib/config.h
+--- glyr-1.0.10/lib/config.h	2016-11-12 14:51:12.000000000 +0000
++++ glyr-1.0.10-fix-version-numbers/lib/config.h	2025-05-04 00:34:06.679917953 +0100
+@@ -12,11 +12,11 @@
+ 
+ #define GLYR_VERSION_MAJOR "1"
+ #define GLYR_VERSION_MINOR "0"
+-#define GLYR_VERSION_MICRO "8"
++#define GLYR_VERSION_MICRO "10"
+ 
+ #define GLYR_VERSION_MAJOR_INT 1
+ #define GLYR_VERSION_MINOR_INT 0
+-#define GLYR_VERSION_MICRO_INT 8
++#define GLYR_VERSION_MICRO_INT 10
+ 
+ /**
+  * GLYR_CHECK_VERSION:
