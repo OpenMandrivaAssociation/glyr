@@ -1,0 +1,12 @@
+diff -rupN glyr-1.0.10.old/lib/intern/lyrics/lyricswiki.c glyr-1.0.10/lib/intern/lyrics/lyricswiki.c
+--- glyr-1.0.10.old/lib/intern/lyrics/lyricswiki.c	2016-11-12 15:51:12.000000000 +0100
++++ glyr-1.0.10/lib/intern/lyrics/lyricswiki.c	2026-08-20 12:25:18.167970278 +0200
+@@ -65,7 +65,7 @@ static gboolean lv_cmp_content (const gc
+ 
+ #define LYR_NODE  "<div class='lyricbox"
+ #define LYR_BEGIN ">"
+-#define LYR_ENDIN "<!--"
++#define LYR_ENDIN "<div class='lyricsbreak"
+ #define LYR_FOOTER "<div id=\"songfooter"
+ #define LYR_CREDITS "<table"
+ #define LYR_INSTRUMENTAL "/Category:Instrumental"
